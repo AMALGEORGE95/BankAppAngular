@@ -1,0 +1,73 @@
+
+  
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href=""><img src="\assets\images\sbi.png" alt="" srcset=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">PERSONAL</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">BUSINESS</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">ABOUT US</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4 " id="ssq">
+        <h1 class="ms-3">WELCOME TO SBI</h1>
+        <!-- string interpolation -->
+        
+      </div>
+      <div class="col-lg-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-6" id="sss">
+            <h2>CREATE YOUR ACCOUNT</h2>
+            <div id="ss">
+                <a routerLink='register'>CLICK HERE</a>
+                
+            </div>
+            <h2 style="margin-left: 135px;" >OR</h2>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+    <hr>
+    
+    
+    <div class="row" id="new">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4" style="width: 370px;">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+              <!-- property binding -->
+              <input class="form-control form-control-lg" type="text" id="accno" formControlName="acno" name="acno3" placeholder="ACCOUNT NUMBER" ><br>
+              <div *ngIf="(this.loginForm.get('acno')?.touched || this.loginForm.get('acno')?.dirty) && this.loginForm.get('acno')?.errors" style="color: red;text-align: center;">invalid account number</div>
+    
+              <input class="form-control form-control-lg" type="password" id="pass1" formControlName="password" name="pswd3" placeholder="PASSWORD"><br>
+              <div *ngIf="(this.loginForm.get('password')?.touched || this.loginForm.get('password')?.dirty) && this.loginForm.get('password')?.errors" style="color: red;text-align: center;">invalid password</div>
+     
+                <button class="btn btn-success" type="submit">login</button>
+               
+            </form>
+
+          
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+

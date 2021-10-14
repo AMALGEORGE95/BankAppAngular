@@ -1,0 +1,131 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href=""><img src="\assets\images\sbi.png" alt="" srcset=""></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" class="btn" onclick="bank.balanceenq()">BALANCE ENQUIRY</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link active" href="#exampleModal" data-bs-toggle="modal" >FUND TRANSFER </a>
+          <span id="user"></span>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link active" href="loginbank.html" onclick="bank.logout()">lOGOUT</a>
+
+         
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+    </div>
+  </div>
+</nav>
+<!-- Button trigger modal -->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <input type="text" id="toacno" placeholder="to account_number">
+    <input type="number"  id="amt" placeholder="amount">
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary" onclick="bank.fundTransfer()">confirm</button>
+  </div>
+</div>
+</div>
+</div>
+<div class="row">
+  <div class="col-lg-4" style="color:white;text-align: left;">
+    <h1>WELCOME {{user1}}</h1>
+  </div>
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4 mybtn-right">
+    <button class="btn btn-danger ms-5 "(click)="logout()">lOGOUT</button>
+  </div>
+  <div class="row">
+    <div class="col-4" style="color: white;">
+      <a routerLink="/transaction" style="color: white;;">Transaction History</a>
+      <br>
+     
+      <p>login details (formatted) {{Dlogin | date:'shortDate'}}</p>
+      
+    </div>
+    <div class="col-4"></div>
+    <div class="col-4"></div>
+  </div>
+
+<div class="row">
+  <div class="col-lg-4"></div>
+  <div [ngClass]="acno1? 'apply' : '' " class="col-lg-4 mt-2" id="first">
+      <form [formGroup]='dashboardForm' (ngSubmit)="deposit()">
+        <h1 appHighlight>DEPOSIT</h1>
+        <!-- <label for="name"><strong>deposit:</strong></label><br>
+        <input  type="text"  id="name1" ><br> -->
+        <label for="name"><strong>accno:</strong></label><br>
+        <input type="text" id="accno" name="acno1" formControlName="acno"><br>
+        <div *ngIf="(this.dashboardForm.get('acno')?.touched || this.dashboardForm.get('acno')?.dirty) && this.dashboardForm.get('acno')?.errors" style="color: red;text-align: center;">invalid acno</div>
+        <label for="name"><strong>pswd:</strong></label><br>
+        <input  type="password"  id="pswd11" name="pswd1" formControlName="pswd"><br>
+        <div *ngIf="(this.dashboardForm.get('pswd')?.touched || this.dashboardForm.get('pswd')?.dirty) && this.dashboardForm.get('pswd')?.errors" style="color: red;text-align: center;">invalid pswd</div>
+        <label for="name"><strong>amount:</strong></label><br>
+        <input  type="text"  id="amount11" name="amount1" formControlName="amount"><br>
+        <div *ngIf="(this.dashboardForm.get('amount')?.touched || this.dashboardForm.get('amount')?.dirty) && this.dashboardForm.get('amount')?.errors" style="color: red;text-align: center;">invalid amount</div>
+        <br>
+        <button type="submit" class="btn btn-success">DEPOSIT</button>
+       
+      </form>
+      
+  </div>
+  <div class="col-lg-4"></div>
+</div>
+<div class="row">
+  <div class="col-lg-4"></div>
+  <div [ngClass]="acno1? 'apply' : '' " class="col-lg-4 mt-4" id="first">
+      <form [formGroup]='dashboardForm' (ngSubmit)="withdraw()">
+        <h1 appHighlight>withdraw</h1>
+        <!-- <label for="name"><strong>withdraw:</strong></label><br>
+        <input  type="text"  id="name1" ><br> -->
+        <label for="name"><strong>accno:</strong></label><br>
+        <input  type="text"  id="name22" name="acno2" formControlName="wacno" ><br>
+        <div *ngIf="(this.dashboardForm.get('wacno')?.touched || this.dashboardForm.get('wacno')?.dirty) && this.dashboardForm.get('wacno')?.errors" style="color: red;text-align: center;">invalid acno</div>
+        <label for="name"><strong>pswd:</strong></label><br>
+        <input  type="password"  id="pswd22" name="pswd2" formControlName="wpswd" ><br>
+        <div *ngIf="(this.dashboardForm.get('wpswd')?.touched || this.dashboardForm.get('wpswd')?.dirty) && this.dashboardForm.get('wpswd')?.errors" style="color: red;text-align: center;">invalid pswd</div>
+        <label for="name"><strong>amount:</strong></label><br>
+        <input  type="text"  id="amount22" name="amount2" formControlName="wamount" ><br><br>
+        <div *ngIf="(this.dashboardForm.get('wamount')?.touched || this.dashboardForm.get('wamount')?.dirty) && this.dashboardForm.get('wamount')?.errors" style="color: red;text-align: center;">invalid amount</div>
+        <button type="submit" class="btn btn-success">WITHDRAW</button>
+
+      </form>
+
+  </div>
+  <div class="col-lg-4"></div>
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4 ms-2 mt-5" style="text-align: center;">
+      <app-delete-confirmation (onCancel)="onCancel()" (onDelete)="onDelete($event)" [item]="acno1"></app-delete-confirmation>
+      <button class="btn btn-success"(click)="deleteAtParent()">DELETE ACCOUNT</button>
+    </div>
+    <div class="col-4"></div>
+  </div>
+</div>

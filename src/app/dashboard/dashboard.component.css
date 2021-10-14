@@ -1,0 +1,24 @@
+#ddd{
+    color: white;
+}
+h2{
+    color: white;
+}
+span{
+    color: white;
+}
+#first{
+    color: white;
+    border-width:2px;
+    border-style:solid;
+    border-color:white;
+    text-align: center;
+    
+}
+.apply{
+    background-color: grey;
+    opacity: 0.3;
+}
+.mybtn-right{
+	text-align: right;
+}

@@ -1,0 +1,37 @@
+/* #body{
+    
+    background-size: cover;
+    background-color: blue;
+    height: 720px;
+    /* background-image: url('\assets\images\cover1.jpg'); */
+    
+    
+    
+    
+ */
+#ddd{
+    color: white;
+}
+h2{
+    color: white;
+}
+#ss{
+    border: 1px;
+    background-color:green;
+    width: 350px;
+    text-align: center;
+}
+a{
+    color:white;
+    text-decoration:none;
+    
+}
+hr{
+    border-top: 1px solid white;
+    border-width: 3px;
+}
+#ssq{
+    
+    color: white;
+    
+}
